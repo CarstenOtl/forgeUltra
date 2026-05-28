@@ -1,0 +1,1 @@
+"""forgeUltra asset configurations."""
