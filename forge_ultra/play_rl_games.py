@@ -44,6 +44,7 @@ from isaaclab_tasks.utils import load_cfg_from_registry, parse_env_cfg
 from isaaclab_rl.rl_games import RlGamesGpuEnv, RlGamesVecEnvWrapper
 
 import forge_ultra.tasks.forge  # noqa: F401  # register Isaac-Forge-*-Ultra-v0
+import forge_ultra.tasks.simtoolreal_sharpa.gym_setup  # noqa: F401  # register simtoolreal_sharpa{,_pretrain_like}
 
 
 class ForgeUltraRlGamesVecEnvWrapper(RlGamesVecEnvWrapper):

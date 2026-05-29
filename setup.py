@@ -11,6 +11,7 @@ setup(
     package_data={
         "forge_ultra.tasks.forge.agents": ["*.yaml"],
         "forge_ultra.tasks.factory.agents": ["*.yaml"],
+        "forge_ultra.tasks.simtoolreal_sharpa.agents": ["*.yaml"],
     },
     install_requires=[],
 )

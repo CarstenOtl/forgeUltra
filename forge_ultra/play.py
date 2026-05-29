@@ -80,6 +80,7 @@ from isaaclab_rl.utils.pretrained_checkpoint import get_published_pretrained_che
 
 import isaaclab_tasks  # noqa: F401
 import forge_ultra.tasks.forge  # noqa: F401  # register Isaac-Forge-*-Ultra-v0
+import forge_ultra.tasks.simtoolreal_sharpa.gym_setup  # noqa: F401  # register simtoolreal_sharpa{,_pretrain_like}
 from isaaclab_tasks.utils import get_checkpoint_path
 from isaaclab_tasks.utils.hydra import hydra_task_config
 

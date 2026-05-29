@@ -27,16 +27,33 @@ The swap is an explicit follow-up spec, tracked in `todos.md`.
 
 Don't unify these without a spec — `todos.md` tracks the open question.
 
-## Gym ids
+## Tasks and gym ids
 
-Our three forge ids end in `-Ultra-v0`:
+Two task families are vendored:
+
+**forge** (vendored from IsaacLab v2.3.2 `isaaclab_tasks.direct.forge`):
 - `Isaac-Forge-PegInsert-Ultra-v0`
 - `Isaac-Forge-GearMesh-Ultra-v0`
 - `Isaac-Forge-NutThread-Ultra-v0`
 
-Upstream's `Isaac-Forge-*-Direct-v0` family coexists on the import path
-(both upstream `isaaclab_tasks` and our vendored copy register their own).
-Either family trains through either script.
+Upstream's `Isaac-Forge-*-Direct-v0` family also coexists on the import
+path (both upstream `isaaclab_tasks` and our vendored copy register their
+own). Either family trains through either entry-point script.
+
+**simtoolreal_sharpa** (vendored from `simtoolreal_isaacsim` @ 2b210ec — KUKA + SHARPA in-hand manipulation, SAPO-trained):
+- `simtoolreal_sharpa`
+- `simtoolreal_sharpa_pretrain_like`
+
+Ids kept verbatim (no `-Ultra-v0` suffix) for 1:1 comparability against
+upstream simtoolreal results. Task lives at
+`forge_ultra/tasks/simtoolreal_sharpa/` and depends on
+`forge_ultra.assets.kuka_sharpa` and `forge_ultra.assets.dextoolbench_usd`.
+Trains via either entry-point; SAPO recipes are in
+`tasks/simtoolreal_sharpa/agents/rl_games_sapo*.yaml` and require
+`train_rl_games.py` (the vendored SAPO fork on sys.path).
+
+`train_rl_games.py`'s `_task_subdir()` maps both id families to their
+on-disk subdirs. When you add another task package, extend that helper.
 
 ## Vendored code invariants
 

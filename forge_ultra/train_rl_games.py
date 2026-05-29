@@ -47,6 +47,8 @@ if args_cli.video:
 def _task_subdir(task_name: str | None) -> str:
     if task_name and task_name.startswith("Isaac-Forge-") and task_name.endswith("-Ultra-v0"):
         return "forge"
+    if task_name in {"simtoolreal_sharpa", "simtoolreal_sharpa_pretrain_like"}:
+        return "simtoolreal_sharpa"
     raise ValueError(
         f"Unknown task id {task_name!r}. Register it in forge_ultra/tasks/<pkg>/__init__.py "
         f"and extend _task_subdir() to map its id to <pkg>."
@@ -81,6 +83,7 @@ from isaaclab_rl.rl_games import RlGamesGpuEnv, RlGamesVecEnvWrapper
 from isaaclab_tasks.utils.hydra import hydra_task_config
 
 import forge_ultra.tasks.forge  # noqa: F401  # register Isaac-Forge-*-Ultra-v0
+import forge_ultra.tasks.simtoolreal_sharpa.gym_setup  # noqa: F401  # register simtoolreal_sharpa{,_pretrain_like}
 
 
 TASKS_DIR = pathlib.Path(__file__).resolve().parent / "tasks"
