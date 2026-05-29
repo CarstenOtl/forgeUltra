@@ -72,6 +72,15 @@ When editing files under `forge_ultra/tasks/forge/` or `forge_ultra/tasks/factor
   source. Diverge intentionally only — and update the relevant todos
   entry if you do.
 
+## IsaacLab version targeting
+
+The repo targets IsaacLab v2.3.2 (the `lab232` env). Version-skew shims
+for APIs that changed between simtoolreal's 2.2.1 baseline and 2.3.2 live
+in `forge_ultra/_isaaclab_compat.py`. When you hit an `ImportError` or
+`AttributeError` from a vendored script/env against a new isaaclab
+version, add a shim there rather than scattering compat code through the
+call sites.
+
 ## Vendored SAPO `rl_games/` fork
 
 `forge_ultra/rl_games/` is a verbatim copy from simtoolreal. The fork has

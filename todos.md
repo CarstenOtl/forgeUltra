@@ -100,3 +100,14 @@ generalize this:
 - [ ] `assets/kuka_sharpa/kuka_sharpa.usd` is 42 MB. If this repo ever
       grows multiple USD checkpoints, set up Git LFS rather than letting
       the working tree balloon. (Currently no git — when git is added.)
+
+## IsaacLab version targeting
+
+- [ ] Bump to IsaacLab 3.x when stable — re-run the static API audit
+      against the new version, port any new deltas into
+      `forge_ultra/_isaaclab_compat.py`.
+- [ ] Drop `_isaaclab_compat.dump_pickle` if 3.x re-adds it to
+      `isaaclab.utils.io` (unlikely but check).
+- [ ] Long-run reward-curve parity check vs simtoolreal_isaacsim's 2.2.1
+      baseline — non-blocking, defer until we have a stable 2.3.2
+      training pipeline.
