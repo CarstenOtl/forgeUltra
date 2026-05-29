@@ -9,7 +9,7 @@ from .simtoolreal_sharpa_env_cfg import SimToolRealSharpaEnvCfg
 
 gym.register(
     id="simtoolreal_sharpa",
-    entry_point="simtoolreal_lab.tasks.simtoolreal_sharpa.simtoolreal_sharpa_env:SimToolRealSharpaEnv",
+    entry_point=f"{__package__}.simtoolreal_sharpa_env:SimToolRealSharpaEnv",
     disable_env_checker=True,
     kwargs={
         "env_cfg_entry_point": SimToolRealSharpaEnvCfg,
@@ -19,7 +19,7 @@ gym.register(
 
 gym.register(
     id="simtoolreal_sharpa_pretrain_like",
-    entry_point="simtoolreal_lab.tasks.simtoolreal_sharpa.simtoolreal_sharpa_env:SimToolRealSharpaEnv",
+    entry_point=f"{__package__}.simtoolreal_sharpa_env:SimToolRealSharpaEnv",
     disable_env_checker=True,
     kwargs={
         "env_cfg_entry_point": SimToolRealSharpaEnvCfg,
